@@ -1,0 +1,220 @@
+/* Dropdown Button */
+
+.dropbtn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+}
+
+
+/* The container <div> - needed to position the dropdown content */
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+
+/* Dropdown Content (Hidden by Default) */
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+
+/* Links inside the dropdown */
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+
+/* Change color of dropdown links on hover */
+
+.dropdown-content a:hover {
+    background-color: #ddd;
+}
+
+
+/* Show the dropdown menu on hover */
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+
+/* Change the background color of the dropdown button when the dropdown content is shown */
+
+.dropdown:hover .dropbtn {
+    background-color: #3e8e41;
+}
+
+
+/* nav bar */
+
+.main_gallery {
+    width: 97%;
+    /* background-color: black; */
+    height: auto;
+    margin: 30px auto;
+}
+
+.main_gallery>.gallery1 {
+    width: 100%;
+    border: 1px solid white;
+    height: auto;
+    display: flex;
+    justify-content: space-between;
+}
+
+.main_gallery>.gallery1>div {
+    width: 100%;
+    /* border: 1px solid rgb(5, 5, 5); */
+    height: 190px;
+    margin: 25px;
+    background-color: #ffffff;
+    box-shadow: 10px 10px 35px 2px #dfe0e2;
+    text-align: center;
+}
+
+.main_gallery>.gallery2 {
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: space-between;
+}
+
+.main_gallery>.gallery2>div {
+    width: 100%;
+    border: 1px solid white;
+    height: 190px;
+    margin: 25px;
+    text-align: center;
+    background-color: #ffffff;
+    /* border: 1px solid rgb(12, 12, 12); */
+    /* box-shadow: 5px 5px 10px #dfe0e2; */
+    box-shadow: 10px 10px 35px 2px #dfe0e2;
+}
+
+.main_gallery>.gallery1>div>img {
+    margin-top: 30px;
+    width: 20%;
+    cursor: pointer;
+}
+
+.main_gallery>.gallery1>div>h2 {
+    font-size: 20px;
+    margin-top: 20px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+.main_gallery>.gallery2>div>img {
+    margin-top: 30px;
+    width: 20%;
+    cursor: pointer;
+}
+
+.main_gallery>.gallery2>div>h2 {
+    font-size: 20px;
+    margin-top: 20px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+
+/* Responsive  */
+
+@media only screen and (max-width: 786px) {
+    .main_gallery>.gallery1 {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .main_gallery>.gallery2 {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .main_gallery>.gallery2>div {
+        height: 240px;
+        width: 58%;
+    }
+    .main_gallery>.gallery1>div {
+        height: 240px;
+        width: 58%;
+    }
+    .main_gallery>.gallery1>div>img {
+        width: 15%;
+        margin-top: 80px;
+    }
+    .main_gallery>.gallery2>div>img {
+        width: 15%;
+        margin-top: 80px;
+    }
+}
+
+@media only screen and (max-width: 425px) {
+    .main_gallery>.gallery1 {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .main_gallery>.gallery2 {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .main_gallery>.gallery2>div> {
+        height: auto;
+    }
+    .main_gallery>.gallery1>div>img {
+        width: 25%;
+        margin-top: 80px;
+    }
+    .main_gallery>.gallery2>div>img {
+        width: 25%;
+        margin-top: 80px;
+    }
+    .main_gallery>.gallery2>div>h2 {
+        font-size: 15px;
+        margin-top: 20px;
+        color: #004890;
+        font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    }
+}
+
+
+/* Footer */
+
+.footer-as {
+    color: white !important;
+}
+
+
+/* Social Icons */
+
+.social-network a.icofb:hover i {
+    color: darkblue !important;
+}
+
+.social-network a.icotw:hover i {
+    color: skyblue !important;
+}
+
+.social-network a.icoin:hover i {
+    color: #d6249f !important;
+    color: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%) !important;
+}
+
+.social-network a.icoyo:hover i {
+    color: #BD3518 !important;
+}
+
+.social-network a.icowa:hover i {
+    color: lightgreen !important;
+}
