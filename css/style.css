@@ -2702,6 +2702,28 @@ h3 {
     }
 }
 
+.portfolio_area .single_gallery .gallery_hover .hover_inner h4 {
+    font-size: 30px;
+    color: #fff;
+    font-weight: 400;
+    font-family: "Alata", sans-serif;
+    line-height: 1;
+    position: relative;
+    left: 15%;
+    opacity: 0;
+    -webkit-transition: 0.4s;
+    -moz-transition: 0.4s;
+    -o-transition: 0.4s;
+    transition: 0.4s;
+}
+
+@media (max-width: 767px) {
+    /* line 131, ../../Arafath/CL/December/230. Portfolio/HTML/scss/_gallery.scss */
+    .portfolio_area .single_gallery .gallery_hover .hover_inner h4 {
+        font-size: 20px;
+    }
+}
+
 
 /* line 149, ../../Arafath/CL/December/230. Portfolio/HTML/scss/_gallery.scss */
 
@@ -2736,6 +2758,7 @@ h3 {
 /* line 167, ../../Arafath/CL/December/230. Portfolio/HTML/scss/_gallery.scss */
 
 .portfolio_area .single_gallery:hover .hover_inner h3,
+.portfolio_area .single_gallery:hover .hover_inner h4,
 .portfolio_area .single_gallery:hover .hover_inner span {
     opacity: 1 !important;
     left: 0%;
