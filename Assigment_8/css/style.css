@@ -1,0 +1,87 @@
+body {
+    box-sizing: border-box;
+    text-align: center;
+    background-image: url(../images/bg-img.jpg);
+    background-position: center;
+    font-family: "Lato", sans-serif;
+    background-repeat: no-repeat;
+    width: 100%;
+  }
+  .titl {
+    font-size: 48px;
+    color: black;
+    
+    margin-top: 10px;
+  }
+  .name{
+      margin: 0px;
+      color: rgb(48, 54, 85);
+      
+  }
+  h1 {
+    display: inline-block;
+    width: 100px;
+    color: rgb(16, 19, 34);
+    text-align: center;
+    border-radius: 2px;
+    background-color: rgb(255, 255, 255);
+  }
+  button {
+    height: 60px;
+    width: 60px;
+    color: rgb(16, 19, 34);
+    font-size: 17px;
+    border: rgb(206, 218, 255) solid 0px;
+    font-weight: bold;
+    border-radius: 5%;
+  }
+
+  .btn-container {
+    /* border: 1px white solid; */
+    width: 325px;
+    height: 60px;
+    margin: auto;
+  }
+  .btns {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      margin-top: 10px;
+      
+  }
+  button:focus {
+    outline: none;
+  }
+  #st{
+      background-color: rgb(99, 236, 99);
+  }
+  #stp{
+      background-color: rgb(243, 46, 46);
+  
+  }
+  #res{
+    background-color: rgb(21, 148, 233);
+  }
+  #lap{
+    background-color: rgb(195, 226, 21);
+  }
+  #laps {
+      list-style-type: decimal;
+    font-size: 23px;
+    color: rgb(206, 218, 255);
+    margin-right: 44px;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 15px;
+    list-style-position:inside;
+    
+  }
+  #laps li {
+      margin-bottom: 5px;
+      background-color: rgb(206, 218, 255);
+      color: rgb(16, 19, 34);
+      border-radius: 2px;
+      padding: 10px;
+      width: 108%;
+  }
