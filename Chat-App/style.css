@@ -1,0 +1,113 @@
+/* some important lines u need for your every project */
+body,html{
+    width: 100% !important;
+    height: 100% !important;
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+}
+
+body{
+    font-family: 'Segoe UI', Arial, Helvetica, sans-serif,Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    background-image: linear-gradient(250deg, #dddbd1,#d2d2d2) !important;
+}
+
+.top{
+    height: 130px !important;
+    width: 100% !important;
+    background-color: #009688;
+    position: fixed !important;
+    z-index: -1 !important;
+}
+
+.chatbox{
+    /* total height - 40px */
+    height: 98% !important;
+    width: 95% !important;
+    margin-top: 20px !important;
+    background-color: cornflowerblue;
+    font-style: italic;
+    padding: 0 !important;
+}
+
+
+
+button{
+    background-color: cornflowerblue;
+}
+.profilepic{
+    width:  40px;
+    height: 40px;
+}
+
+.form-rounded {
+    border-radius: 1rem !important;
+}
+
+.chatBG{
+    background-image: url(ChatBackground.png);
+}
+.recieve{
+    background-color: #FFFFFF;
+    border-radius: 1rem;
+    padding: 5px 5px;
+    display: inline-block !important;
+}
+
+.sent{
+    background-color: #DCF8C6;
+    border-radius: 1rem;
+    padding: 5px 5px;
+    display: inline-block !important;
+}
+.time{
+    font-size: 10px;
+    color: gray;
+    margin-top: 3%;
+    margin-left: 1%;
+
+}
+
+.freindpics{
+    width: 50px;
+    height: 50px;
+}
+
+.chatpic{
+    width: 30px;
+    height: 30px;
+}
+
+.name{
+    font-weight: 400;
+    color: #000;
+}
+
+.under-name{
+    font-size: 12px;
+    line-height: 15px;
+    max-height: 15px;
+}
+
+.icon{
+    font-size: 20px;
+    color: #9ca1a3;
+}
+
+.iconColor{
+    color: #9ca1a3;
+}
+
+.card{
+    height: 96vh !important;
+}
+
+/* TO Scroll purpose */
+#messages{
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+.dropdown-toggle::before{
+    display: none !important;
+}

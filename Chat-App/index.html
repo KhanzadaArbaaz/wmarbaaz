@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+    <meta name="viewport" content="width=device-width, initial=scale=1" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css"
+        integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/ea3305966d.js" crossorigin="anonymous"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.20.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.20.0/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.20.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.20.0/firebase-database.js"></script>
+
+
+   <script>
+        // Your web app's Firebase configuration
+        // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+        var firebaseConfig = {
+            apiKey: "AIzaSyDEND01dvdqe2ERxHa19Qbn-oQXPHGUb50",
+            authDomain: "chatapp-6c097.firebaseapp.com",
+            databaseURL: "https://chatapp-6c097.firebaseio.com",
+            projectId: "chatapp-6c097",
+            storageBucket: "chatapp-6c097.appspot.com",
+            messagingSenderId: "679433066310",
+            appId: "1:679433066310:web:e2094b5f7473b7021fb747",
+            measurementId: "G-KL2LJSYWEE"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+        firebase.analytics();
+    </script>
+
+    <script src="app.js"></script>
+
+
+</head>
+
+<body>
+    <span class="top"></span>
+
+    <div class="container-fluid chatbox shadow-lg rounded" style="background-color: #F8F9FA;">
+        <div class="row h-100">
+            <div class="col-md-4 h-100 pr-0 d-none d-md-block" id="side-1">
+
+                <!-- left top section -->
+                <div class="card h-100">
+                    <div class="card-header">
+                        <div class="row">
+
+                            <div class="col-1 col-sm-1 d-md-none">
+                                <i class="fas fa-arrow-left" style="cursor: pointer;" onclick="hideChat()"></i>
+                            </div>
+
+                            <div class="col-2 col-sm-2 col-md-1">
+                                <img id="ppic"
+                                    src="https://www.eguardtech.com/wp-content/uploads/2018/08/Network-Profile.png"
+                                    alt="" class="profilepic rounded-circle">
+                            </div>
+
+
+                            <div class="col-7 col-sm-7 col-md-9 ">
+                                <h5 id="personName" class="mt-2"></h5>
+                            </div>
+
+                            <div class="col-2 col-sm-2 col-md-2">
+                                <div class="dropleft">
+                                    <span class="dropdown-toggle" data-toggle="dropdown">
+                                        <i class="fas fa-ellipsis-v icon" onclick=""
+                                            style="cursor: pointer; float: right;"></i>
+                                    </span>
+                                    <!-- dropdown items -->
+                                    <div class="dropdown-menu">
+                                        <a href="#" id="lnkNewChat" class="dropdown-item"  data-toggle="modal"
+                                            data-target="#modalFrndList" onclick="populateFrndList()" style="display: none;">New chat</a>
+                                        <a href="#" onclick="facebookLogin()" id="lnksignIn" class="dropdown-item"
+                                            >Sign In</a>
+                                        <a href="#" onclick="signOut()" id="lnksignOut" class="dropdown-item"
+                                            style="display: none;">Sign Out</a>
+                                    </div>
+
+                                    <!-- pop up for new chat (making chat list pop) -->
+                                    <div class="modal fade" id="modalFrndList">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content">
+                                                <div class="card">
+                                                    <div class="card-header">
+                                                        Friend list
+                                                        <span class="close" style="cursor: pointer;" data-dismiss="modal">&times;</span>
+                                                    </div>
+                                                    <!-- ul for dynamically making the list -->
+                                                    <ul class="list-group  list-group-flush" id="lstFrnd"></ul>
+
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                        </div>
+
+                        <!-- left chat side -->
+                        <ul class="list-group  list-group-flush">
+
+                            <li class="list-group-item " style="background-color: #f8f8f8;">
+                                <div class="row">
+                                    <div class="col-md-1">
+                                        <i style="font-size: x-large;" class="fas fa-search icon mt-2"></i>
+                                    </div>
+                                    <div class="col-md-11">
+                                        <input type="text" placeholder="Search or start new chat"
+                                            class="form-rounded form-control">
+                                    </div>
+                                </div>
+
+                            </li>
+                            <!-- friend's chats -->
+                            <!-- friend1 -->
+                            <li class="list-group-item list-group-item-action" style="cursor: pointer;"
+                                onclick="startChat(1,1,1)">
+                                <div class="row">
+
+
+
+                                    <div class="col-md-2">
+                                        <img src="https://www.eguardtech.com/wp-content/uploads/2018/08/Network-Profile.png"
+                                            alt="" class="freindpics">
+
+                                    </div>
+
+                                    <div class="col-md-10">
+                                        <div class="name">
+                                            <h6 id="1">My Friend 1</h6>
+                                        </div>
+                                        <div class="under-name">Hey How are you ?</div>
+                                    </div>
+                                </div>
+                            </li>
+
+
+
+                            <!-- friend2 -->
+                            <li class="list-group-item list-group-item-action" style="cursor: pointer;"
+                                onclick="startChat(2,2,2)">
+                                <div class="row">
+                                    <div class="col-md-2">
+                                        <img src="https://www.eguardtech.com/wp-content/uploads/2018/08/Network-Profile.png"
+                                            alt="" class="freindpics">
+
+                                    </div>
+
+                                    <div class="col-md-10">
+                                        <div class="name">
+                                            <h6 id="2">My Friend 2</h6>
+                                        </div>
+                                        <div class="under-name">Hey How are you ?</div>
+                                    </div>
+                                </div>
+                            </li>
+
+
+                            <!-- friend3 -->
+                            <li class="list-group-item list-group-item-action" style="cursor: pointer;"
+                                onclick="startChat(3,2,2)">
+                                <div class="row">
+                                    <div class="col-md-2">
+                                        <img src="https://www.eguardtech.com/wp-content/uploads/2018/08/Network-Profile.png"
+                                            alt="" class="freindpics">
+
+                                    </div>
+
+                                    <div class="col-md-10">
+                                        <div class="name">
+                                            <h6 id="3">My Friend 3</h6>
+                                        </div>
+                                        <div class="under-name">Hey How are you ?</div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- right section -->
+            <div class="col-md-8 pl-0">
+
+                <!-- chat screen -->
+                <div id="chatPanel" class="card d-none ">
+                    <div class="card-header">
+                        <div class="row">
+
+                            <div class="col-2 col-sm-2 d-md-none">
+                                <i class="fas fa-list mt-2" style="cursor: pointer;" onclick="showChatList()"></i>
+                            </div>
+
+                            <div class="col-2 col-sm-2 col-md-2 col-lg-1">
+                                <img id="imgChat" src="https://www.eguardtech.com/wp-content/uploads/2018/08/Network-Profile.png"
+                                    alt="" class="profilepic">
+                            </div>
+                            <div class="col-4 col-sm-4 col-md-6 col-lg-8">
+                                <div class="name">
+                                    <h6 id="chatheading" id="divChatName"></h6>
+                                </div>
+                                <div class="under-name" id="divChatSeen">Last seen 17/9/2020</div>
+                            </div>
+                            <div class="col-4 col-sm-4 col-md-4 col-lg-3">
+                                <i class="fas fa-search icon"></i>
+                                <i class="fas fa-paperclip icon ml-4"></i>
+                                <i class="fas fa-ellipsis-v icon ml-4"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card-body h-75 chatBG" id="messages">
+
+                        <!-- reciever -->
+                        <div class="row ">
+                            <div class="col-6 col-sm-6 col-md-6 recieve" style="display: inline-block;">
+
+                                <div style="display: inline-block;">
+                                    <h6 style="color: indianred;">Ahsan</h6>
+
+                                    <p>Assalam oAlaikumasdasdasdad alam oAlaikumasdasdasdadalam oAlaikumasdasdasdadalam
+                                        oAlaikumasdasdasdadalam oAlaikumasdasdasdad
+                                        <span class="time float-right">6:12 pm</span>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+
+
+                        <!-- sender -->
+                        <div class="row justify-content-end mt-2">
+                            <div class="col-6 col-sm-6 col-md-6 sent" style="display: inline-block;">
+
+                                <div style="display: inline-block;">
+                                    <h6 style="color: indianred;">Ahsan</h6>
+
+                                    <p>Assalam oAlaikumasdasdasdad alam oAlaikumasdasdasdadalam
+                                        oAlaikumasdasdasdadalam
+                                        oAlaikumasdasdasdadalam oAlaikumasdasdasdad
+                                        <span class="time float-right">6:12 pm</span>
+                                    </p>
+                                </div>
+
+                            </div>
+                        </div>
+
+
+                    </div>
+
+                    <div class="card-footer">
+                        <div class="row ">
+                            <div class="col-2 col-md-1">
+                                <i class="far fa-grin fa-2x iconColor"></i>
+                            </div>
+
+
+                            <div class="col-6 col-md-8">
+
+                                <input onclick="onKeyDown()" id="message" type="text" placeholder="Type Here"
+                                    class="form-control form-rounded">
+
+
+                            </div>
+                            <div class="col-4 col-md-3">
+                                <div class="row">
+
+                                    <i onclick="sendMessage()" class="fa fa-paper-plane fa-2x iconColor pr-2"
+                                        style="cursor: pointer; text-align: left;" aria-hidden="true"></i>
+                                    <i class="fas fa-microphone fa-2x iconColor justify-content-end pl-2"></i>
+
+                                </div>
+                            </div>
+
+                        </div>
+
+
+                    </div>
+                </div>
+
+                <!-- first screen after reload -->
+                <div id="divStart" class="text-center">
+                    <img src="logo.PNG" class="mt-5" alt="" width="50%" height="50%">
+                    <h1 style="font-weight: lighter;">Keep Your Phone Connected</h1>
+                    <h6 style="font-weight: lighter; color: grey;">ChatApp connects to your phone to sync messages to
+                        reduce data usage, connect your phone to
+                        wifi.</h6>
+                    <br>
+
+
+
+
+                    <div class="row" style="text-align: center;">
+                        <div class="col-md-3"></div>
+                        <div class="col-md-6">
+                            <p style="color: grey;"><i style="color: #009688;" class="fas fa-comments"></i> &nbsp Hope
+                                you
+                                will enjoy this Chat Application</p>
+                            <hr>
+
+
+                            <br>
+                            <img style="cursor: pointer;" src="fb.png" onclick="facebookLogin()" alt="" width="50%"
+                                height="32%">
+                        </div>
+                        <div class="col-md-3"></div>
+                    </div>
+
+                </div>
+
+                <!-- second screen-->
+                <div id="afterFBLogin" class="d-none">
+
+                    <div class="row mt-5" style="text-align: center;">
+                        <div class="col-md-1">
+                            <img id="ppic1"
+                                src="https://www.eguardtech.com/wp-content/uploads/2018/08/Network-Profile.png" alt=""
+                                class="profilepic rounded-circle" width="100%" height="100%">
+                        </div>
+                        <div class="col-md-11 ">
+                            <h5 id="personName1" class="mt-2">Please wait for fetching your Name</h5>
+
+                            <br>
+                            <br>
+                            <br>
+                            <a href="#" onclick="showChatList()">Start Chat</a>
+                            <!-- <i onclick="signOut()" class="fas fa-sign-out-alt">Sign Out</i> -->
+                        </div>
+
+                        <div>
+
+                        </div>
+
+
+
+
+                    </div>
+
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+
+
+    <!-- <button onclick="facebookLogin()">Facebook Login</button>
+
+    <button onclick="signOut()">Facebook Logout</button>
+    <button onclick="getName()">Get Name</button>
+
+    <form onsubmit="return sendMessage();">
+
+        <input id="message" placeholder="Enter Message" autocomplete="off">
+        <input type="submit">
+
+
+
+
+    </form>
+
+    <ul id="messages"></ul> -->
+
+
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"
+        integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js"
+        integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1"
+        crossorigin="anonymous"></script>
+
+</body>
+
+</html>
